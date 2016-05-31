@@ -39,24 +39,24 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.utils.UIHandler;
 
 /**
- * ¿ì½İ·ÖÏíµÄÈë¿Ú
+ * å¿«æ·åˆ†äº«çš„å…¥å£
  * <p>
- * Í¨¹ı²»Í¬µÄsetterÉèÖÃ²ÎÊı£¬È»ºóµ÷ÓÃ{@link #show(Context)}·½·¨Æô¶¯¿ì½İ·ÖÏí
+ * é€šè¿‡ä¸åŒçš„setterè®¾ç½®å‚æ•°ï¼Œç„¶åè°ƒç”¨{@link #show(Context)}æ–¹æ³•å¯åŠ¨å¿«æ·åˆ†äº«
  */
 public class OnekeyShare extends FakeActivity implements
 		OnClickListener, PlatformActionListener, Callback {
 	private static final int MSG_TOAST = 1;
 	private static final int MSG_ACTION_CCALLBACK = 2;
 	private static final int MSG_CANCEL_NOTIFY = 3;
-	// Ò³Ãæ
+	// é¡µé¢
 	private FrameLayout flPage;
-	// ¹¬¸ñÁĞ±í
+	// å®«æ ¼åˆ—è¡¨
 	private PlatformGridView grid;
-	// È¡Ïû°´Å¥
+	// å–æ¶ˆæŒ‰é’®
 	private Button btnCancel;
-	// »¬ÉÏÀ´µÄ¶¯»­
+	// æ»‘ä¸Šæ¥çš„åŠ¨ç”»
 	private Animation animShow;
-	// »¬ÏÂÈ¥µÄ¶¯»­
+	// æ»‘ä¸‹å»çš„åŠ¨ç”»
 	private Animation animHide;
 	private boolean finishing;
 	private boolean canceled;
@@ -84,128 +84,128 @@ public class OnekeyShare extends FakeActivity implements
 		super.show(context, null);
 	}
 
-	/** ·ÖÏíÊ±NotificationµÄÍ¼±êºÍÎÄ×Ö */
+	/** åˆ†äº«æ—¶Notificationçš„å›¾æ ‡å’Œæ–‡å­— */
 	public void setNotification(int icon, String title) {
 		notifyIcon = icon;
 		notifyTitle = title;
 	}
 
-	/** addressÊÇ½ÓÊÕÈËµØÖ·£¬½öÔÚĞÅÏ¢ºÍÓÊ¼şÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** addressæ˜¯æ¥æ”¶äººåœ°å€ï¼Œä»…åœ¨ä¿¡æ¯å’Œé‚®ä»¶ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setAddress(String address) {
 		reqMap.put("address", address);
 	}
 
 	/**
-	 * title±êÌâ£¬ÔÚÓ¡Ïó±Ê¼Ç¡¢ÓÊÏä¡¢ĞÅÏ¢¡¢Î¢ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦ºÍÊÕ²Ø£©¡¢
-	 * Ò×ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦£©¡¢ÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹©
+	 * titleæ ‡é¢˜ï¼Œåœ¨å°è±¡ç¬”è®°ã€é‚®ç®±ã€ä¿¡æ¯ã€å¾®ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆå’Œæ”¶è—ï¼‰ã€
+	 * æ˜“ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆï¼‰ã€äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾›
 	 */
 	public void setTitle(String title) {
 		reqMap.put("title", title);
 	}
 
-	/** titleUrlÊÇ±êÌâµÄÍøÂçÁ´½Ó£¬½öÔÚÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** titleUrlæ˜¯æ ‡é¢˜çš„ç½‘ç»œé“¾æ¥ï¼Œä»…åœ¨äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setTitleUrl(String titleUrl) {
 		reqMap.put("titleUrl", titleUrl);
 	}
 
-	/** textÊÇ·ÖÏíÎÄ±¾£¬ËùÓĞÆ½Ì¨¶¼ĞèÒªÕâ¸ö×Ö¶Î */
+	/** textæ˜¯åˆ†äº«æ–‡æœ¬ï¼Œæ‰€æœ‰å¹³å°éƒ½éœ€è¦è¿™ä¸ªå­—æ®µ */
 	public void setText(String text) {
 		reqMap.put("text", text);
 	}
 
-	/** »ñÈ¡text×Ö¶ÎµÄÖµ */
+	/** è·å–textå­—æ®µçš„å€¼ */
 	public String getText() {
 		return reqMap.containsKey("text") ? String.valueOf(reqMap.get("text")) : null;
 	}
 
-	/** imagePathÊÇ±¾µØµÄÍ¼Æ¬Â·¾¶£¬³ıLinked-InÍâµÄËùÓĞÆ½Ì¨¶¼Ö§³ÖÕâ¸ö×Ö¶Î */
+	/** imagePathæ˜¯æœ¬åœ°çš„å›¾ç‰‡è·¯å¾„ï¼Œé™¤Linked-Inå¤–çš„æ‰€æœ‰å¹³å°éƒ½æ”¯æŒè¿™ä¸ªå­—æ®µ */
 	public void setImagePath(String imagePath) {
 		if(!TextUtils.isEmpty(imagePath))
 			reqMap.put("imagePath", imagePath);
 	}
 
-	/** imageUrlÊÇÍ¼Æ¬µÄÍøÂçÂ·¾¶£¬ĞÂÀËÎ¢²©¡¢ÈËÈËÍø¡¢QQ¿Õ¼äºÍLinked-InÖ§³Ö´Ë×Ö¶Î */
+	/** imageUrlæ˜¯å›¾ç‰‡çš„ç½‘ç»œè·¯å¾„ï¼Œæ–°æµªå¾®åšã€äººäººç½‘ã€QQç©ºé—´å’ŒLinked-Inæ”¯æŒæ­¤å­—æ®µ */
 	public void setImageUrl(String imageUrl) {
 		if (!TextUtils.isEmpty(imageUrl))
 			reqMap.put("imageUrl", imageUrl);
 	}
 
-	/** urlÔÚÎ¢ĞÅ£¨°üÀ¨ºÃÓÑ¡¢ÅóÓÑÈ¦ÊÕ²Ø£©ºÍÒ×ĞÅ£¨°üÀ¨ºÃÓÑºÍÅóÓÑÈ¦£©ÖĞÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
- 	public void setUrl(String url) {
+	/** urlåœ¨å¾®ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹ã€æœ‹å‹åœˆæ”¶è—ï¼‰å’Œæ˜“ä¿¡ï¼ˆåŒ…æ‹¬å¥½å‹å’Œæœ‹å‹åœˆï¼‰ä¸­ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
+	public void setUrl(String url) {
 		reqMap.put("url", url);
 	}
 
-	/** filePathÊÇ´ı·ÖÏíÓ¦ÓÃ³ÌĞòµÄ±¾µØÂ·¾¢£¬½öÔÚÎ¢ĞÅ£¨Ò×ĞÅ£©ºÃÓÑºÍDropboxÖĞÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** filePathæ˜¯å¾…åˆ†äº«åº”ç”¨ç¨‹åºçš„æœ¬åœ°è·¯åŠ²ï¼Œä»…åœ¨å¾®ä¿¡ï¼ˆæ˜“ä¿¡ï¼‰å¥½å‹å’ŒDropboxä¸­ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setFilePath(String filePath) {
 		reqMap.put("filePath", filePath);
 	}
 
-	/** commentÊÇÎÒ¶ÔÕâÌõ·ÖÏíµÄÆÀÂÛ£¬½öÔÚÈËÈËÍøºÍQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** commentæ˜¯æˆ‘å¯¹è¿™æ¡åˆ†äº«çš„è¯„è®ºï¼Œä»…åœ¨äººäººç½‘å’ŒQQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setComment(String comment) {
 		reqMap.put("comment", comment);
 	}
 
-	/** siteÊÇ·ÖÏí´ËÄÚÈİµÄÍøÕ¾Ãû³Æ£¬½öÔÚQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** siteæ˜¯åˆ†äº«æ­¤å†…å®¹çš„ç½‘ç«™åç§°ï¼Œä»…åœ¨QQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setSite(String site) {
 		reqMap.put("site", site);
 	}
 
-	/** siteUrlÊÇ·ÖÏí´ËÄÚÈİµÄÍøÕ¾µØÖ·£¬½öÔÚQQ¿Õ¼äÊ¹ÓÃ£¬·ñÔò¿ÉÒÔ²»Ìá¹© */
+	/** siteUrlæ˜¯åˆ†äº«æ­¤å†…å®¹çš„ç½‘ç«™åœ°å€ï¼Œä»…åœ¨QQç©ºé—´ä½¿ç”¨ï¼Œå¦åˆ™å¯ä»¥ä¸æä¾› */
 	public void setSiteUrl(String siteUrl) {
 		reqMap.put("siteUrl", siteUrl);
 	}
 
-	/** foursquare·ÖÏíÊ±µÄµØ·½Ãû */
+	/** foursquareåˆ†äº«æ—¶çš„åœ°æ–¹å */
 	public void setVenueName(String venueName) {
 		reqMap.put("venueName", venueName);
 	}
 
-	/** foursquare·ÖÏíÊ±µÄµØ·½ÃèÊö */
+	/** foursquareåˆ†äº«æ—¶çš„åœ°æ–¹æè¿° */
 	public void setVenueDescription(String venueDescription) {
 		reqMap.put("venueDescription", venueDescription);
 	}
 
-	/** ·ÖÏíµØÎ³¶È£¬ĞÂÀËÎ¢²©¡¢ÌÚÑ¶Î¢²©ºÍfoursquareÖ§³Ö´Ë×Ö¶Î */
+	/** åˆ†äº«åœ°çº¬åº¦ï¼Œæ–°æµªå¾®åšã€è…¾è®¯å¾®åšå’Œfoursquareæ”¯æŒæ­¤å­—æ®µ */
 	public void setLatitude(float latitude) {
 		reqMap.put("latitude", latitude);
 	}
 
-	/** ·ÖÏíµØ¾­¶È£¬ĞÂÀËÎ¢²©¡¢ÌÚÑ¶Î¢²©ºÍfoursquareÖ§³Ö´Ë×Ö¶Î */
+	/** åˆ†äº«åœ°ç»åº¦ï¼Œæ–°æµªå¾®åšã€è…¾è®¯å¾®åšå’Œfoursquareæ”¯æŒæ­¤å­—æ®µ */
 	public void setLongitude(float longitude) {
 		reqMap.put("longitude", longitude);
 	}
 
-	/** ÊÇ·ñÖ±½Ó·ÖÏí */
+	/** æ˜¯å¦ç›´æ¥åˆ†äº« */
 	public void setSilent(boolean silent) {
 		this.silent = silent;
 	}
 
-	/** ÉèÖÃ±à¼­Ò³µÄ³õÊ¼»¯Ñ¡ÖĞÆ½Ì¨ */
+	/** è®¾ç½®ç¼–è¾‘é¡µçš„åˆå§‹åŒ–é€‰ä¸­å¹³å° */
 	public void setPlatform(String platform) {
 		reqMap.put("platform", platform);
 	}
 
-	/** ÉèÖÃ×Ô¶¨ÒåµÄÍâ²¿»Øµ÷ */
+	/** è®¾ç½®è‡ªå®šä¹‰çš„å¤–éƒ¨å›è°ƒ */
 	public void setCallback(PlatformActionListener callback) {
 		this.callback = callback;
 	}
 
-	/** ·µ»Ø²Ù×÷»Øµ÷ */
+	/** è¿”å›æ“ä½œå›è°ƒ */
 	public PlatformActionListener getCallback() {
 		return callback;
 	}
 
-	/** ÉèÖÃÓÃÓÚ·ÖÏí¹ı³ÌÖĞ£¬¸ù¾İ²»Í¬Æ½Ì¨×Ô¶¨Òå·ÖÏíÄÚÈİµÄ»Øµ÷ */
+	/** è®¾ç½®ç”¨äºåˆ†äº«è¿‡ç¨‹ä¸­ï¼Œæ ¹æ®ä¸åŒå¹³å°è‡ªå®šä¹‰åˆ†äº«å†…å®¹çš„å›è°ƒ */
 	public void setShareContentCustomizeCallback(ShareContentCustomizeCallback callback) {
 		customizeCallback = callback;
 	}
 
-	/** ·µ»Ø×Ô¶¨Òå·ÖÏíÄÚÈİµÄ»Øµ÷ */
+	/** è¿”å›è‡ªå®šä¹‰åˆ†äº«å†…å®¹çš„å›è°ƒ */
 	public ShareContentCustomizeCallback getShareContentCustomizeCallback() {
 		return customizeCallback;
 	}
 
-	/** ÉèÖÃ×Ô¼ºÍ¼±êºÍµã»÷ÊÂ¼ş£¬¿ÉÒÔÖØ¸´µ÷ÓÃÌí¼Ó¶à´Î */
+	/** è®¾ç½®è‡ªå·±å›¾æ ‡å’Œç‚¹å‡»äº‹ä»¶ï¼Œå¯ä»¥é‡å¤è°ƒç”¨æ·»åŠ å¤šæ¬¡ */
 	public void setCustomerLogo(Bitmap logo, String label, OnClickListener ocListener) {
 		CustomerLogo cl = new CustomerLogo();
 		cl.label = label;
@@ -214,23 +214,23 @@ public class OnekeyShare extends FakeActivity implements
 		customers.add(cl);
 	}
 
-	/** ÉèÖÃÒ»¸ö×Ü¿ª¹Ø£¬ÓÃÓÚÔÚ·ÖÏíÇ°ÈôĞèÒªÊÚÈ¨£¬Ôò½ûÓÃsso¹¦ÄÜ */
- 	public void disableSSOWhenAuthorize() {
+	/** è®¾ç½®ä¸€ä¸ªæ€»å¼€å…³ï¼Œç”¨äºåœ¨åˆ†äº«å‰è‹¥éœ€è¦æˆæƒï¼Œåˆ™ç¦ç”¨ssoåŠŸèƒ½ */
+	public void disableSSOWhenAuthorize() {
 		disableSSO = true;
 	}
 
-	/** ÉèÖÃ±à¼­Ò³ÃæµÄÏÔÊ¾Ä£Ê½ÎªDialogÄ£Ê½ */
+	/** è®¾ç½®ç¼–è¾‘é¡µé¢çš„æ˜¾ç¤ºæ¨¡å¼ä¸ºDialogæ¨¡å¼ */
 	public void setDialogMode() {
 		dialogMode = true;
 		reqMap.put("dialogMode", dialogMode);
 	}
 
-	/** Ìí¼ÓÒ»¸öÒş²ØµÄplatform */
+	/** æ·»åŠ ä¸€ä¸ªéšè—çš„platform */
 	public void addHiddenPlatform(String platform) {
 		hiddenPlatforms.put(platform, platform);
 	}
 
-	/** ÉèÖÃÒ»¸ö½«±»½ØÍ¼·ÖÏíµÄView */
+	/** è®¾ç½®ä¸€ä¸ªå°†è¢«æˆªå›¾åˆ†äº«çš„View */
 	public void setViewToShare(View viewToShare) {
 		try {
 			Bitmap bm = captureView(viewToShare, viewToShare.getWidth(), viewToShare.getHeight());
@@ -245,13 +245,13 @@ public class OnekeyShare extends FakeActivity implements
 	}
 
 	public void onCreate() {
-		// ÏÔÊ¾·½Ê½ÊÇÓÉplatformºÍsilentÁ½¸ö×Ö¶Î¿ØÖÆµÄ
-		// Èç¹ûplatformÉèÖÃÁË£¬ÔòÎŞĞëÏÔÊ¾¾Å¹¬¸ñ£¬·ñÔò¶¼»áÏÔÊ¾£»
-		// Èç¹ûsilentÎªtrue£¬±íÊ¾²»½øÈë±à¼­Ò³Ãæ£¬·ñÔò»á½øÈë¡£
-		// ±¾ÀàÖ»ÅĞ¶Ïplatform£¬ÒòÎª¾Å¹¬¸ñÏÔÊ¾ÒÔºó£¬ÊÂ¼ş½»¸øPlatformGridView¿ØÖÆ
-		// µ±platformºÍsilent¶¼Îªtrue£¬ÔòÖ±½Ó½øÈë·ÖÏí£»
-		// µ±platformÉèÖÃÁË£¬µ«ÊÇsilentÎªfalse£¬ÔòÅĞ¶ÏÊÇ·ñÊÇ¡°Ê¹ÓÃ¿Í»§¶Ë·ÖÏí¡±µÄÆ½Ì¨£¬
-		// ÈôÎª¡°Ê¹ÓÃ¿Í»§¶Ë·ÖÏí¡±µÄÆ½Ì¨£¬ÔòÖ±½Ó·ÖÏí£¬·ñÔò½øÈë±à¼­Ò³Ãæ
+		// æ˜¾ç¤ºæ–¹å¼æ˜¯ç”±platformå’Œsilentä¸¤ä¸ªå­—æ®µæ§åˆ¶çš„
+		// å¦‚æœplatformè®¾ç½®äº†ï¼Œåˆ™æ— é¡»æ˜¾ç¤ºä¹å®«æ ¼ï¼Œå¦åˆ™éƒ½ä¼šæ˜¾ç¤ºï¼›
+		// å¦‚æœsilentä¸ºtrueï¼Œè¡¨ç¤ºä¸è¿›å…¥ç¼–è¾‘é¡µé¢ï¼Œå¦åˆ™ä¼šè¿›å…¥ã€‚
+		// æœ¬ç±»åªåˆ¤æ–­platformï¼Œå› ä¸ºä¹å®«æ ¼æ˜¾ç¤ºä»¥åï¼Œäº‹ä»¶äº¤ç»™PlatformGridViewæ§åˆ¶
+		// å½“platformå’Œsilentéƒ½ä¸ºtrueï¼Œåˆ™ç›´æ¥è¿›å…¥åˆ†äº«ï¼›
+		// å½“platformè®¾ç½®äº†ï¼Œä½†æ˜¯silentä¸ºfalseï¼Œåˆ™åˆ¤æ–­æ˜¯å¦æ˜¯â€œä½¿ç”¨å®¢æˆ·ç«¯åˆ†äº«â€çš„å¹³å°ï¼Œ
+		// è‹¥ä¸ºâ€œä½¿ç”¨å®¢æˆ·ç«¯åˆ†äº«â€çš„å¹³å°ï¼Œåˆ™ç›´æ¥åˆ†äº«ï¼Œå¦åˆ™è¿›å…¥ç¼–è¾‘é¡µé¢
 		HashMap<String, Object> copy = new HashMap<String, Object>();
 		copy.putAll(reqMap);
 		if (copy.containsKey("platform")) {
@@ -303,18 +303,18 @@ public class OnekeyShare extends FakeActivity implements
 		initAnim();
 		activity.setContentView(flPage);
 
-		// ÉèÖÃ¹¬¸ñÁĞ±íÊı¾İ
+		// è®¾ç½®å®«æ ¼åˆ—è¡¨æ•°æ®
 		grid.setData(copy, silent);
 		grid.setHiddenPlatforms(hiddenPlatforms);
 		grid.setCustomerLogos(customers);
 		grid.setParent(this);
 		btnCancel.setOnClickListener(this);
 
-		// ÏÔÊ¾ÁĞ±í
+		// æ˜¾ç¤ºåˆ—è¡¨
 		flPage.clearAnimation();
 		flPage.startAnimation(animShow);
 
-		// ´ò¿ª·ÖÏí²Ëµ¥µÄÍ³¼Æ
+		// æ‰“å¼€åˆ†äº«èœå•çš„ç»Ÿè®¡
 		ShareSDK.logDemoEvent(1, null);
 	}
 
@@ -322,7 +322,7 @@ public class OnekeyShare extends FakeActivity implements
 		flPage = new FrameLayout(getContext());
 		flPage.setOnClickListener(this);
 
-		// ¹¬¸ñÁĞ±íµÄÈİÆ÷£¬ÎªÁË¡°ÏÂ¶ÔÆë¡±£¬ÔÚÍâ²¿°üº¬ÁËÒ»¸öFrameLayout
+		// å®«æ ¼åˆ—è¡¨çš„å®¹å™¨ï¼Œä¸ºäº†â€œä¸‹å¯¹é½â€ï¼Œåœ¨å¤–éƒ¨åŒ…å«äº†ä¸€ä¸ªFrameLayout
 		LinearLayout llPage = new LinearLayout(getContext()) {
 			public boolean onTouchEvent(MotionEvent event) {
 				return true;
@@ -339,7 +339,7 @@ public class OnekeyShare extends FakeActivity implements
 		llPage.setLayoutParams(lpLl);
 		flPage.addView(llPage);
 
-		// ¹¬¸ñÁĞ±í
+		// å®«æ ¼åˆ—è¡¨
 		grid = new PlatformGridView(getContext());
 		grid.setEditPageBackground(bgView);
 		LinearLayout.LayoutParams lpWg = new LinearLayout.LayoutParams(
@@ -347,7 +347,7 @@ public class OnekeyShare extends FakeActivity implements
 		grid.setLayoutParams(lpWg);
 		llPage.addView(grid);
 
-		// È¡Ïû°´Å¥
+		// å–æ¶ˆæŒ‰é’®
 		btnCancel = new Button(getContext());
 		btnCancel.setTextColor(0xffffffff);
 		btnCancel.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
@@ -415,7 +415,7 @@ public class OnekeyShare extends FakeActivity implements
 			return super.onFinish();
 		}
 
-		// È¡Ïû·ÖÏí²Ëµ¥µÄÍ³¼Æ
+		// å–æ¶ˆåˆ†äº«èœå•çš„ç»Ÿè®¡
 		if (canceled) {
 			ShareSDK.logDemoEvent(2, null);
 		}
@@ -439,7 +439,7 @@ public class OnekeyShare extends FakeActivity implements
 		return super.onFinish();
 	}
 
-	/** Ñ­»·Ö´ĞĞ·ÖÏí */
+	/** å¾ªç¯æ‰§è¡Œåˆ†äº« */
 	public void share(HashMap<Platform, HashMap<String, Object>> shareData) {
 		boolean started = false;
 		for (Entry<Platform, HashMap<String, Object>> ent : shareData.entrySet()) {
@@ -557,7 +557,7 @@ public class OnekeyShare extends FakeActivity implements
 	}
 
 	public void onComplete(Platform platform, int action,
-			HashMap<String, Object> res) {
+						   HashMap<String, Object> res) {
 		Message msg = new Message();
 		msg.what = MSG_ACTION_CCALLBACK;
 		msg.arg1 = 1;
@@ -576,7 +576,7 @@ public class OnekeyShare extends FakeActivity implements
 		msg.obj = t;
 		UIHandler.sendMessage(msg, this);
 
-		// ·ÖÏíÊ§°ÜµÄÍ³¼Æ
+		// åˆ†äº«å¤±è´¥çš„ç»Ÿè®¡
 		ShareSDK.logDemoEvent(4, platform);
 	}
 
@@ -599,7 +599,7 @@ public class OnekeyShare extends FakeActivity implements
 			case MSG_ACTION_CCALLBACK: {
 				switch (msg.arg1) {
 					case 1: {
-						// ³É¹¦
+						// æˆåŠŸ
 						int resId = getStringRes(getContext(), "share_completed");
 						if (resId > 0) {
 							showNotification(2000, getContext().getString(resId));
@@ -607,7 +607,7 @@ public class OnekeyShare extends FakeActivity implements
 					}
 					break;
 					case 2: {
-						// Ê§°Ü
+						// å¤±è´¥
 						String expName = msg.obj.getClass().getSimpleName();
 						if ("WechatClientNotExistException".equals(expName)
 								|| "WechatTimelineNotSupportedException".equals(expName)
@@ -641,7 +641,7 @@ public class OnekeyShare extends FakeActivity implements
 					}
 					break;
 					case 3: {
-						// È¡Ïû
+						// å–æ¶ˆ
 						int resId = getStringRes(getContext(), "share_canceled");
 						if (resId > 0) {
 							showNotification(2000, getContext().getString(resId));
@@ -662,7 +662,7 @@ public class OnekeyShare extends FakeActivity implements
 		return false;
 	}
 
-	// ÔÚ×´Ì¬À¸ÌáÊ¾·ÖÏí²Ù×÷
+	// åœ¨çŠ¶æ€æ æç¤ºåˆ†äº«æ“ä½œ
 	private void showNotification(long cancelTime, String text) {
 		try {
 			Context app = getContext().getApplicationContext();

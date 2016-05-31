@@ -33,7 +33,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
-/** »ñÈ¡ºÃÓÑ»ò¹Ø×¢ÁĞ±í */
+/** è·å–å¥½å‹æˆ–å…³æ³¨åˆ—è¡¨ */
 public class FollowList extends FakeActivity implements OnClickListener, OnItemClickListener {
 	private TitleLayout llTitle;
 	private Platform platform;
@@ -49,7 +49,7 @@ public class FollowList extends FakeActivity implements OnClickListener, OnItemC
 		llPage.setOrientation(LinearLayout.VERTICAL);
 		activity.setContentView(llPage);
 
-		// ±êÌâÀ¸
+		// æ ‡é¢˜æ 
 		llTitle = new TitleLayout(getContext());
 		int resId = getBitmapRes(getContext(), "title_back");
 		if (resId > 0) {
@@ -77,7 +77,7 @@ public class FollowList extends FakeActivity implements OnClickListener, OnItemC
 		flPage.setLayoutParams(lpFl);
 		llPage.addView(flPage);
 
-		// ¹Ø×¢£¨»òÅóÓÑ£©ÁĞ±í
+		// å…³æ³¨ï¼ˆæˆ–æœ‹å‹ï¼‰åˆ—è¡¨
 		PullToRefreshView followList = new PullToRefreshView(getContext());
 		FrameLayout.LayoutParams lpLv = new FrameLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -98,7 +98,7 @@ public class FollowList extends FakeActivity implements OnClickListener, OnItemC
 		ivShadow.setLayoutParams(lpSd);
 		flPage.addView(ivShadow);
 
-		// ÇëÇóÊı¾İ
+		// è¯·æ±‚æ•°æ®
 		followList.performPulling(true);
 	}
 

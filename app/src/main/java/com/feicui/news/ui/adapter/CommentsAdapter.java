@@ -38,16 +38,16 @@ public class CommentsAdapter extends MyBaseAdapter<Comment> {
 		Comment comment=myList.get(position);
 
 		LogUtil.d(LogUtil.TAG, "position--->"+position +"--- cid="+comment.getCid());
-//		  entity�޸ģ� ��ע�͡�
+//		  entity修改， 先注释。
 		  holdView.tv_comment.setText(comment.getContent());
 		holdView.tv_time.setText(comment.getStamp());
 		holdView.tv_user.setText(comment.getUid());
 		
 		
 		
-//		holdView.iv_list_image.setImageBitmap(defaultBitmap);//Ĭ��ͼƬ
+//		holdView.iv_list_image.setImageBitmap(defaultBitmap);//默认图片
 //		if(comment.cuserid!=0){
-//			String url="";//------------------------ͼƬ���Ȳ�д
+//			String url="";//------------------------图片，先不写
 //			holdView.iv_list_image.setTag(url);
 //			System.out.println(CommonUtil.APPURL+url);
 //			Bitmap bitmap=loadImage.geBitmap(CommonUtil.APPURL+url);

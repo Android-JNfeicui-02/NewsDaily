@@ -7,19 +7,18 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import cn.sharesdk.framework.FakeActivity;
 
-/** 查看编辑页面中图片的例子 */
+/** 鏌ョ湅缂栬緫椤甸潰涓浘鐗囩殑渚嬪瓙 */
 public class PicViewer extends FakeActivity implements OnClickListener {
 	private ImageView ivViewer;
 	private Bitmap pic;
 
-	/** 设置图片用于浏览 */
+	/** 璁剧疆鍥剧墖鐢ㄤ簬娴忚 */
 	public void setImageBitmap(Bitmap pic) {
 		this.pic = pic;
 		if (ivViewer != null) {
 			ivViewer.setImageBitmap(pic);
 		}
 	}
-
 	public void onCreate() {
 		ivViewer = new ImageView(activity);
 		ivViewer.setScaleType(ScaleType.CENTER_INSIDE);

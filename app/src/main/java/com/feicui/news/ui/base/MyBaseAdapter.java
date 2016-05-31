@@ -23,7 +23,8 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 		return myList;
 	}
 	
-	//·â×°¼ÓÊı¾İµÄ·½·¨--1Ìõ  ¶àÌõ     
+
+	//å°è£…åŠ æ•°æ®çš„æ–¹æ³•--1æ¡  å¤šæ¡
 	public void appendData(T t,boolean isClearOld){
 		if(t==null)
 			return;
@@ -31,7 +32,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 			myList.clear();
 		myList.add(t);
 	}
-	//·â×°¼ÓÊı¾İµÄ·½·¨-  ¶àÌõ    
+	//å°è£…åŠ æ•°æ®çš„æ–¹æ³•-  å¤šæ¡
 	public void appendData(List<T> data,boolean isClearOld){
 		if(data==null)
 			return;
@@ -39,7 +40,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 			myList.clear();
 		myList.addAll(data);
 	}
-	//·â×°¼ÓÊı¾İµÄ·½·¨--1Ìõ  ¶àÌõ    ÔÚ¶¥²¿Ìí¼Ó
+	//å°è£…åŠ æ•°æ®çš„æ–¹æ³•--1æ¡  å¤šæ¡    åœ¨é¡¶éƒ¨æ·»åŠ 
 	public void appendDataTop(T t,boolean isClearOld){
 		if(t==null)
 			return;
@@ -47,7 +48,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 			myList.clear();
 		myList.add(0, t);
 	}
-	//·â×°¼ÓÊı¾İµÄ·½·¨-¶àÌõ    ÔÚ¶¥²¿Ìí¼Ó
+	//å°è£…åŠ æ•°æ®çš„æ–¹æ³•-å¤šæ¡    åœ¨é¡¶éƒ¨æ·»åŠ 
 	public void appendDataTop(List<T> data,boolean isClearOld){
 		if(data==null)
 			return;

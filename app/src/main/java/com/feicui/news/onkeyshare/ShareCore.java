@@ -15,23 +15,23 @@ import cn.sharesdk.framework.utils.R;
 import cn.sharesdk.framework.ShareSDK;
 
 /**
- * ShareCoreÊÇ¿ì½İ·ÖÏíµÄÊµ¼Ê³ö¿Ú£¬´ËÀàÊ¹ÓÃÁË·´ÉäµÄ·½Ê½£¬ÅäºÏ´«µİ½øÀ´µÄHashMap£¬
- *¹¹Ôì{@link ShareParams}¶ÔÏó£¬²¢Ö´ĞĞ·ÖÏí£¬Ê¹¿ì½İ·ÖÏí²»ÔÙĞèÒª¿¼ÂÇÄ¿±êÆ½Ì¨
+ * ShareCoreæ˜¯å¿«æ·åˆ†äº«çš„å®é™…å‡ºå£ï¼Œæ­¤ç±»ä½¿ç”¨äº†åå°„çš„æ–¹å¼ï¼Œé…åˆä¼ é€’è¿›æ¥çš„HashMapï¼Œ
+ *æ„é€ {@link ShareParams}å¯¹è±¡ï¼Œå¹¶æ‰§è¡Œåˆ†äº«ï¼Œä½¿å¿«æ·åˆ†äº«ä¸å†éœ€è¦è€ƒè™‘ç›®æ ‡å¹³å°
  */
 public class ShareCore {
 	private ShareContentCustomizeCallback customizeCallback;
 
-	/** ÉèÖÃÓÃÓÚ·ÖÏí¹ı³ÌÖĞ£¬¸ù¾İ²»Í¬Æ½Ì¨×Ô¶¨Òå·ÖÏíÄÚÈİµÄ»Øµ÷ */
+	/** è®¾ç½®ç”¨äºåˆ†äº«è¿‡ç¨‹ä¸­ï¼Œæ ¹æ®ä¸åŒå¹³å°è‡ªå®šä¹‰åˆ†äº«å†…å®¹çš„å›è°ƒ */
 	public void setShareContentCustomizeCallback(ShareContentCustomizeCallback callback) {
 		customizeCallback = callback;
 	}
 
 	/**
-	 * ÏòÖ¸¶¨Æ½Ì¨·ÖÏíÄÚÈİ
+	 * å‘æŒ‡å®šå¹³å°åˆ†äº«å†…å®¹
 	 * <p>
-	 * <b>×¢Òâ£º</b><br>
-	 * ²ÎÊıdataµÄ¼üÖµĞèÒªÑÏ¸ñ°´ÕÕ{@link ShareParams}²»Í¬×ÓÀà¾ßÌå×Ö¶ÎÀ´ÃüÃû£¬
-	 *·ñÔòÎŞ·¨·´Éä´Ë×Ö¶Î£¬Ò²ÎŞ·¨ÉèÖÃÆäÖµ¡£
+	 * <b>æ³¨æ„ï¼š</b><br>
+	 * å‚æ•°dataçš„é”®å€¼éœ€è¦ä¸¥æ ¼æŒ‰ç…§{@link ShareParams}ä¸åŒå­ç±»å…·ä½“å­—æ®µæ¥å‘½åï¼Œ
+	 *å¦åˆ™æ— æ³•åå°„æ­¤å­—æ®µï¼Œä¹Ÿæ— æ³•è®¾ç½®å…¶å€¼ã€‚
 	 */
 	public boolean share(Platform plat, HashMap<String, Object> data) {
 		if (plat == null || data == null) {
@@ -70,7 +70,7 @@ public class ShareCore {
 		return true;
 	}
 
-	/** ÅĞ¶ÏÖ¸¶¨Æ½Ì¨ÊÇ·ñÊ¹ÓÃ¿Í»§¶Ë·ÖÏí */
+	/** åˆ¤æ–­æŒ‡å®šå¹³å°æ˜¯å¦ä½¿ç”¨å®¢æˆ·ç«¯åˆ†äº« */
 	public static boolean isUseClientToShare(String platform) {
 		if ("Wechat".equals(platform) || "WechatMoments".equals(platform)
 				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform)
@@ -99,7 +99,7 @@ public class ShareCore {
 		return false;
 	}
 
-	/** ÅĞ¶ÏÖ¸¶¨Æ½Ì¨ÊÇ·ñ¿ÉÒÔÓÃÀ´ÊÚÈ¨ */
+	/** åˆ¤æ–­æŒ‡å®šå¹³å°æ˜¯å¦å¯ä»¥ç”¨æ¥æˆæƒ */
 	public static boolean canAuthorize(Context context, String platform) {
 		if ("Wechat".equals(platform) || "WechatMoments".equals(platform)
 				|| "WechatFavorite".equals(platform) || "ShortMessage".equals(platform)

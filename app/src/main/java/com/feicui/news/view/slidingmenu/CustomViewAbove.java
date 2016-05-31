@@ -28,16 +28,16 @@ import android.widget.Scroller;
 
 import com.feicui.news.view.slidingmenu.SlidingMenu.OnClosedListener;
 import com.feicui.news.view.slidingmenu.SlidingMenu.OnOpenedListener;
-/**×Ô¶¨ÒåÊÓÍ¼**/
+/**è‡ªå®šä¹‰è§†å›¾**/
 public class CustomViewAbove extends ViewGroup {
 
 	private static final String TAG = "CustomViewAbove";
 	private static final boolean DEBUG = false;
 
 	private static final boolean USE_CACHE = false;
-	/**×î´óµÄ½áÊøÊ±³¤*/
+	/**æœ€å¤§çš„ç»“æŸæ—¶é•¿*/
 	private static final int MAX_SETTLE_DURATION = 600; // ms
-	/**×îĞ¡µÄ»¬¶¯¾àÀë*/
+	/**æœ€å°çš„æ»‘åŠ¨è·ç¦»*/
 	private static final int MIN_DISTANCE_FOR_FLING = 25; // dips
 
 	private static final Interpolator sInterpolator = new Interpolator() {
@@ -56,7 +56,7 @@ public class CustomViewAbove extends ViewGroup {
 
 	private boolean mScrolling;
 
-	private boolean mIsBeingDragged;//Drag ÍÏ    /fling ÈÓ
+	private boolean mIsBeingDragged;//Drag æ‹–    /fling æ‰”
 	private boolean mIsUnableToDrag;
 	private int mTouchSlop;
 	private float mInitialMotionX;
@@ -78,7 +78,7 @@ public class CustomViewAbove extends ViewGroup {
 
 	/**
 	 * Determines speed during touch scrolling
-	 * ËÙ¶È×·×ÙÆ÷
+	 * é€Ÿåº¦è¿½è¸ªå™¨
 	 */
 	protected VelocityTracker mVelocityTracker;
 	private int mMinimumVelocity;
@@ -103,15 +103,15 @@ public class CustomViewAbove extends ViewGroup {
 
 	/**
 	 * Callback interface for responding to changing state of the selected page.
-	 * ×÷Îª±»Ñ¡ÖĞµÄÒ³Ãæ×´Ì¬¸Ä±äÊ±µÄ»Øµ÷½Ó¿Ú
+	 * ä½œä¸ºè¢«é€‰ä¸­çš„é¡µé¢çŠ¶æ€æ”¹å˜æ—¶çš„å›è°ƒæ¥å£
 	 */
 	public interface OnPageChangeListener {
 
 		/**
-		 * This method will be invoked£¨µ÷ÓÃ£© when the current page is scrolled, either as part
-		 * of a programmatically initiated smooth£¨¹â»¬Æ½ÎÈ£© scroll or a user initiated touch scroll.
+		 * This method will be invoked when the current page is scrolled, either as part
+		 * of a programmatically initiated smooth scroll or a user initiated touch scroll.
 		 *
-		 * @param position Position index of the first page currently being displayed£¨ÏÔÊ¾£©.
+		 * @param position Position index of the first page currently being displayed
 		 *                 Page position+1 will be visible if positionOffset is nonzero.
 		 * @param positionOffset Value from [0, 1) indicating the offset from the page at position.
 		 * @param positionOffsetPixels Value in pixels indicating the offset from position.
@@ -132,7 +132,7 @@ public class CustomViewAbove extends ViewGroup {
 	 * Simple implementation of the {@link OnPageChangeListener} interface with stub
 	 * implementations of each method. Extend this if you do not intend to override
 	 * every method of {@link OnPageChangeListener}.
-	 * ¼Ì³ĞOnPageChangeListener½Ó¿Ú£¬¸ù¾İ×Ô¼ºµÄĞèÇóÊµÏÖ·½·¨£¬¶ø²»ÓÃÈ«²¿¶¼ÊµÏÖËùÓĞµÄ·½·¨
+	 * ç»§æ‰¿OnPageChangeListeneræ¥å£ï¼Œæ ¹æ®è‡ªå·±çš„éœ€æ±‚å®ç°æ–¹æ³•ï¼Œè€Œä¸ç”¨å…¨éƒ¨éƒ½å®ç°æ‰€æœ‰çš„æ–¹æ³•
 	 */
 	public static class SimpleOnPageChangeListener implements OnPageChangeListener {
 
@@ -956,7 +956,7 @@ public class CustomViewAbove extends ViewGroup {
 		}
 		return handled;
 	}
-	/***¼ıÍ·»¬¶¯*/
+	/***ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½*/
 	public boolean arrowScroll(int direction) {
 		View currentFocused = findFocus();
 		if (currentFocused == this) currentFocused = null;

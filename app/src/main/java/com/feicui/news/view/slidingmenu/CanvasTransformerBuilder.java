@@ -7,7 +7,7 @@ import android.view.animation.Interpolator;
 
 
 public class CanvasTransformerBuilder {
-	// Transformer ±äÑ¹Æ÷
+	// Transformer å˜å‹å™¨
 	private CanvasTransformer mTrans;
 
 	private static Interpolator lin = new Interpolator() {
@@ -24,13 +24,13 @@ public class CanvasTransformerBuilder {
 			};
 	}
 
-	/*** ·Å´ó¶¯»­ */
+	/*** æ”¾å¤§åŠ¨ç”» */
 	public CanvasTransformer zoom(final int openedX, final int closedX,
 			final int openedY, final int closedY, final int px, final int py) {
 		return zoom(openedX, closedX, openedY, closedY, px, py, lin);
 	}
 
-	/*** ·Å´ó¶¯»­ */
+	/*** æ”¾å¤§åŠ¨ç”» */
 	public CanvasTransformer zoom(final int openedX, final int closedX,
 			final int openedY, final int closedY, final int px, final int py,
 			final Interpolator interp) {
@@ -46,13 +46,13 @@ public class CanvasTransformerBuilder {
 		return mTrans;
 	}
 
-	/** Ğı×ª¶¯»­ */
+	/** æ—‹è½¬åŠ¨ç”» */
 	public CanvasTransformer rotate(final int openedDeg, final int closedDeg,
 			final int px, final int py) {
 		return rotate(openedDeg, closedDeg, px, py, lin);
 	}
 
-	/** Ğı×ª¶¯»­ */
+	/** æ—‹è½¬åŠ¨ç”» */
 	public CanvasTransformer rotate(final int openedDeg, final int closedDeg,
 			final int px, final int py, final Interpolator interp) {
 		initTransformer();
@@ -66,13 +66,13 @@ public class CanvasTransformerBuilder {
 		return mTrans;
 	}
 
-	/** Æ½ÒÆ¶¯»­ **/
+	/** å¹³ç§»åŠ¨ç”» **/
 	public CanvasTransformer translate(final int openedX, final int closedX,
 			final int openedY, final int closedY) {
 		return translate(openedX, closedX, openedY, closedY, lin);
 	}
 
-	/** Æ½ÒÆ¶¯»­ **/
+	/** å¹³ç§»åŠ¨ç”» **/
 	public CanvasTransformer translate(final int openedX, final int closedX,
 			final int openedY, final int closedY, final Interpolator interp) {
 		initTransformer();

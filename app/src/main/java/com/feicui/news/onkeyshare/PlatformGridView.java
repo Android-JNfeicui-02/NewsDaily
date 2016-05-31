@@ -30,28 +30,28 @@ import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.utils.UIHandler;
 
-/** Æ½Ì¨¹¬¸ñÁĞ±íÏÔÊ¾¹¤¾ß¡£ */
+/** å¹³å°å®«æ ¼åˆ—è¡¨æ˜¾ç¤ºå·¥å…·ã€‚ */
 public class PlatformGridView extends LinearLayout implements
 		OnClickListener, Callback {
 	private static final int MIN_CLICK_INTERVAL = 1000;
 	private static final int MSG_PLATFORM_LIST_GOT = 1;
-	// Ã¿ĞĞÏÔÊ¾µÄ¸ñÊı
+	// æ¯è¡Œæ˜¾ç¤ºçš„æ ¼æ•°
 	private int LINE_PER_PAGE;
-	// Ã¿Ò³ÏÔÊ¾µÄĞĞÊı
+	// æ¯é¡µæ˜¾ç¤ºçš„è¡Œæ•°
 	private int COLUMN_PER_LINE;
-	// Ã¿Ò³ÏÔÊ¾µÄ¸ñÊı
+	// æ¯é¡µæ˜¾ç¤ºçš„æ ¼æ•°
 	private int PAGE_SIZE;
-	// ¹¬¸ñÈİÆ÷
+	// å®«æ ¼å®¹å™¨
 	private ViewPagerClassic pager;
-	// Ò³ÃæÖ¸Ê¾Æ÷
+	// é¡µé¢æŒ‡ç¤ºå™¨
 	private ImageView[] points;
 	private Bitmap grayPoint;
 	private Bitmap whitePoint;
-	// ÊÇ·ñ²»Ìø×ªEditPage¶øÖ±½Ó·ÖÏí
+	// æ˜¯å¦ä¸è·³è½¬EditPageè€Œç›´æ¥åˆ†äº«
 	private boolean silent;
-	// Æ½Ì¨Êı¾İ
+	// å¹³å°æ•°æ®
 	private Platform[] platformList;
-	// ´ÓÍâ²¿´«½øÀ´µÄ·ÖÏíÊı¾İ£¨º¬³õÊ¼»¯Êı¾İ£©
+	// ä»å¤–éƒ¨ä¼ è¿›æ¥çš„åˆ†äº«æ•°æ®ï¼ˆå«åˆå§‹åŒ–æ•°æ®ï¼‰
 	private HashMap<String, Object> reqData;
 	private OnekeyShare parent;
 	private ArrayList<CustomerLogo> customers;
@@ -78,7 +78,7 @@ public class PlatformGridView extends LinearLayout implements
 		pager.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		addView(pager);
 
-		// ÎªÁË¸üºÃµÄuiĞ§¹û£¬¿ªÆô×ÓÏß³Ì»ñÈ¡Æ½Ì¨ÁĞ±í
+		// ä¸ºäº†æ›´å¥½çš„uiæ•ˆæœï¼Œå¼€å¯å­çº¿ç¨‹è·å–å¹³å°åˆ—è¡¨
 		new Thread() {
 			public void run() {
 				platformList = ShareSDK.getPlatformList();
@@ -125,7 +125,7 @@ public class PlatformGridView extends LinearLayout implements
 		return false;
 	}
 
-	/** ³õÊ¼»¯¹¬¸ñÁĞ±íui */
+	/** åˆå§‹åŒ–å®«æ ¼åˆ—è¡¨ui */
 	public void afterPlatformListGot() {
 		PlatformAdapter adapter = new PlatformAdapter(this);
 		pager.setAdapter(adapter);
@@ -148,7 +148,7 @@ public class PlatformGridView extends LinearLayout implements
 
 		Context context = getContext();
 		LinearLayout llPoints = new LinearLayout(context);
-		// Èç¹ûÒ³Ãæ×ÜÊı³¬¹ı1£¬ÔòÉèÖÃÒ³ÃæÖ¸Ê¾Æ÷
+		// å¦‚æœé¡µé¢æ€»æ•°è¶…è¿‡1ï¼Œåˆ™è®¾ç½®é¡µé¢æŒ‡ç¤ºå™¨
 		llPoints.setVisibility(pageCount > 1 ? View.VISIBLE: View.GONE);
 		LayoutParams lpLl = new LayoutParams(
 				LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
@@ -178,7 +178,7 @@ public class PlatformGridView extends LinearLayout implements
 		points[curPage].setImageBitmap(whitePoint);
 	}
 
-	/** ÆÁÄ»Ğı×ªºó£¬´Ë·½·¨»á±»µ÷ÓÃ£¬ÒÔË¢ĞÂ¹¬¸ñÁĞ±íµÄ²¼¾Ö */
+	/** å±å¹•æ—‹è½¬åï¼Œæ­¤æ–¹æ³•ä¼šè¢«è°ƒç”¨ï¼Œä»¥åˆ·æ–°å®«æ ¼åˆ—è¡¨çš„å¸ƒå±€ */
 	public void onConfigurationChanged() {
 		int curFirst = pager.getCurrentScreen() * PAGE_SIZE;
 		calPageSize();
@@ -199,7 +199,7 @@ public class PlatformGridView extends LinearLayout implements
 		this.hiddenPlatforms = hiddenPlatforms;
 	}
 
-	/** ÉèÖÃ×Ô¼ºÍ¼±êµÄµã»÷ÊÂ¼ş */
+	/** è®¾ç½®è‡ªå·±å›¾æ ‡çš„ç‚¹å‡»äº‹ä»¶ */
 	public void setCustomerLogos(ArrayList<CustomerLogo> customers) {
 		this.customers = customers;
 	}
@@ -208,7 +208,7 @@ public class PlatformGridView extends LinearLayout implements
 		this.bgView = bgView;
 	}
 
-	/** ÉèÖÃ·ÖÏí²Ù×÷µÄ»Øµ÷Ò³Ãæ */
+	/** è®¾ç½®åˆ†äº«æ“ä½œçš„å›è°ƒé¡µé¢ */
 	public void setParent(OnekeyShare parent) {
 		this.parent = parent;
 	}
@@ -232,7 +232,7 @@ public class PlatformGridView extends LinearLayout implements
 
 			String name = plat.getName();
 			reqData.put("platform", name);
-			// EditPage²»Ö§³ÖÎ¢ĞÅÆ½Ì¨¡¢Google+¡¢QQ·ÖÏí¡¢Pinterest¡¢ĞÅÏ¢ºÍÓÊ¼ş£¬×ÜÊÇÖ´ĞĞÖ±½Ó·ÖÏí
+			// EditPageä¸æ”¯æŒå¾®ä¿¡å¹³å°ã€Google+ã€QQåˆ†äº«ã€Pinterestã€ä¿¡æ¯å’Œé‚®ä»¶ï¼Œæ€»æ˜¯æ‰§è¡Œç›´æ¥åˆ†äº«
 			if ((plat instanceof CustomPlatform)
 					|| ShareCore.isUseClientToShare(name)) {
 				HashMap<Platform, HashMap<String, Object>> shareData
@@ -242,7 +242,7 @@ public class PlatformGridView extends LinearLayout implements
 				return;
 			}
 
-			// Ìø×ªEditPage·ÖÏí
+			// è·³è½¬EditPageåˆ†äº«
 			EditPage page = new EditPage();
 			page.setBackGround(bgView);
 			bgView = null;
@@ -264,14 +264,14 @@ public class PlatformGridView extends LinearLayout implements
 		}
 	}
 
-	// ½ûÓÃÒ³Ãæ¹ö¶¯µÄ¡°·¢¹â¡±Ğ§¹û
+	// ç¦ç”¨é¡µé¢æ»šåŠ¨çš„â€œå‘å…‰â€æ•ˆæœ
 	private void disableOverScrollMode(View view) {
 		if (Build.VERSION.SDK_INT < 9) {
 			return;
 		}
 		try {
 			Method m = View.class.getMethod("setOverScrollMode",
-					new Class[] { Integer.TYPE });
+											new Class[] { Integer.TYPE });
 			m.setAccessible(true);
 			m.invoke(view, new Object[] { Integer.valueOf(2) });
 		} catch (Throwable t) {
@@ -279,7 +279,7 @@ public class PlatformGridView extends LinearLayout implements
 		}
 	}
 
-	/** ¹¬¸ñÁĞ±íÊı¾İÊÊÅäÆ÷ */
+	/** å®«æ ¼åˆ—è¡¨æ•°æ®é€‚é…å™¨ */
 	private static class PlatformAdapter extends ViewPagerAdapter {
 		private GridView[] girds;
 		private List<Object> logos;
@@ -359,7 +359,7 @@ public class PlatformGridView extends LinearLayout implements
 			return girds[position];
 		}
 
-		/** ÆÁÄ»»¬¶¯ºó£¬´Ë·½·¨»á±»µ÷ÓÃ */
+		/** å±å¹•æ»‘åŠ¨åï¼Œæ­¤æ–¹æ³•ä¼šè¢«è°ƒç”¨ */
 		public void onScreenChange(int currentScreen, int lastScreen) {
 			ImageView[] points = platformGridView.points;
 			for (int i = 0; i < points.length; i++) {
@@ -371,7 +371,7 @@ public class PlatformGridView extends LinearLayout implements
 
 	}
 
-	/** ¼òÒ×µÄ¹¬¸ñÁĞ±í¿Ø¼ş */
+	/** ç®€æ˜“çš„å®«æ ¼åˆ—è¡¨æ§ä»¶ */
 	private static class GridView extends LinearLayout {
 		private Object[] beans;
 		private OnClickListener callback;

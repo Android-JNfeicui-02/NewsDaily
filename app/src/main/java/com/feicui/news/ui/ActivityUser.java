@@ -130,7 +130,7 @@ public class ActivityUser extends MyBaseActivity implements ImageLoadListener {
 				LogUtil.d("请求用户中心返回字符串", response);
 				BaseEntity<User> user = ParserUser.parserUser(response);
 				if(Integer.parseInt(user.getStatus()) != 0 ){
-					Toast.makeText(ActivityUser.this, "请求用户中心失败", 0).show();
+					Toast.makeText(ActivityUser.this, "请求用户中心失败", Toast.LENGTH_SHORT).show();
 					return ;
 				}
 
